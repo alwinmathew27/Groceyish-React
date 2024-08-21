@@ -1,0 +1,1 @@
+export const Base_Url = "https://traveller.talrop.works/api/v1/"

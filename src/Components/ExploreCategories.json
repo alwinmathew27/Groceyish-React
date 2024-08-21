@@ -1,0 +1,19 @@
+{
+    "categories": [
+      { "name": "Peach", "items": 20, "image": "peach.png", "type": "Fruits" },
+      { "name": "Spinach", "items": 20, "image": "spinach.png", "type": "Fruits" },
+      { "name": "Strawberry", "items": 78, "image": "strawberry.png", "type": "Fruits" },
+      { "name": "Apple", "items": 40, "image": "apple.png", "type": "Fruits" },
+      { "name": "Orange", "items": 23, "image": "orange.png", "type": "Fruits" },
+      { "name": "Potato", "items": 18, "image": "potato.png", "type": "Fruits" },
+      { "name": "Carrot", "items": 220, "image": "carrot.png", "type": "Vegetables" },
+      { "name": "cabbage", "items": 17, "image": "cabbage.jpeg", "type": "Vegetables" },
+      { "name": "beetroot", "items": 90, "image": "beetroot.jpg", "type": "Vegetables" }, 
+      { "name": "Potato", "items": 48, "image": "potato.png", "type": "Vegetables" },
+      { "name": "Kanan Devan", "items": 65, "image": "kanan.jpeg", "type": "Coffe & teas" },
+      { "name": "Tata Tea", "items": 70, "image": "Tata.png", "type": "Coffe & teas" },
+      { "name": "Beef", "items": 15, "image": "beef.jpg", "type": "Meat" },
+      { "name": "Chicken", "items": 50, "image": "chicken.jpg", "type": "Meat" },
+      { "name": "Mutton", "items": 20, "image": "mutton.avif", "type": "Meat" }
+    ]
+  }
