@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "../Screens/Home/Home";
 import Login from "../Screens/authen/Login";
 import Signup from "../Screens/authen/Signup";
-
 export const UserContext = React.createContext();
 function App() {
   const [userData, setUserData] = useState(null);
