@@ -42,7 +42,6 @@ function Slider() {
   const [email, setEmail] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [showModal, setShowModal] = useState(false);
-
   const prevSlide = () => {
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
@@ -54,11 +53,9 @@ function Slider() {
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
   };
-
   const goToSlide = (slideIndex) => {
     setCurrentIndex(slideIndex);
   };
-
   const handleSubscription = (e) => {
     e.preventDefault();
     // Here you would typically send the email to a server
@@ -66,7 +63,6 @@ function Slider() {
     setShowModal(true);
     setEmail("");
   };
-
   return (
     <div className="max-w-[1600px] h-[450px] w-full m-auto  px-0 relative group">
       <div
@@ -149,5 +145,4 @@ function Slider() {
     </div>
   );
 }
-
 export default Slider;

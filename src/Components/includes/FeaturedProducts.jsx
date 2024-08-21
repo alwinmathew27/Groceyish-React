@@ -10,7 +10,6 @@ import Broccoli from "../../assets/images/FeaturedProducts/braccoli.png";
 import GreenBeans from "../../assets/images/FeaturedProducts/greenBeans.png";
 import Kanandevan from "../../assets/images/FeaturedProducts/kanan.jpeg";
 import Chicken from "../../assets/images/FeaturedProducts/chicken.jpg";
-
 const products = [
   { id: 1, name: 'Redish 500g', category: 'Vegetables', price: 2, oldPrice: 3.99, image: Redish, rating: 4 },
   { id: 2, name: 'Potatos 1kg', category: 'Vegetables', price: 1, oldPrice: 1.99, image: Potatos, rating: 4 },
@@ -20,37 +19,30 @@ const products = [
   { id: 6, name: 'Chicken 1kg', category: 'Meats', price: 8, oldPrice: 1.99, image: Chicken, rating: 4 },
   { id: 7, name: 'Kanan Devan', category: 'Tea & Coffee', price: 5, oldPrice: 1.99, image: Kanandevan, rating: 4 },
 ];
-
 const categories = ['All', 'Vegetables', 'Fruits', 'Tea & Coffee', 'Meats'];
-
 const FeaturedProducts = ({ selectedCategory, setSelectedCategory, searchQuery }) => {
   const sliderRef = useRef(null);
   const { addToCart, updateQuantity, removeFromCart, cart } = useCart();
   const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
   const [hoveredProduct, setHoveredProduct] = useState(null);
-
   const filteredProducts = products.filter(product => {
     const matchesCategory = selectedCategory === 'All' || product.category === selectedCategory;
     const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
-
   const scroll = (scrollOffset) => {
     if (sliderRef.current) {
       sliderRef.current.scrollLeft += scrollOffset;
     }
   };
-
   const handleAddToCart = (product) => {
     addToCart(product);
     toast.success(`${product.name} added to cart!`);
   };
-
   const handleIncreaseQuantity = (productId) => {
     const product = cart.items.find(item => item.id === productId);
     updateQuantity(productId, product.quantity + 1);
   };
-
   const handleDecreaseQuantity = (productId) => {
     const product = cart.items.find(item => item.id === productId);
     if (product.quantity > 1) {
@@ -59,16 +51,13 @@ const FeaturedProducts = ({ selectedCategory, setSelectedCategory, searchQuery }
       removeFromCart(productId);
     }
   };
-
   const isInCart = (productId) => {
     return cart.items.some(item => item.id === productId);
   };
-
   const getProductQuantity = (productId) => {
     const product = cart.items.find(item => item.id === productId);
     return product ? product.quantity : 0;
   };
-
   const handleWishlistToggle = (product) => {
     if (wishlist.some(item => item.id === product.id)) {
       removeFromWishlist(product.id);
@@ -78,11 +67,9 @@ const FeaturedProducts = ({ selectedCategory, setSelectedCategory, searchQuery }
       toast.success(`${product.name} added to wishlist!`);
     }
   };
-
   const isInWishlist = (productId) => {
     return wishlist.some(item => item.id === productId);
   };
-
   return (
     <div className="wrapper container mx-auto py-8">
       <div className="flex justify-between items-center mb-6">
@@ -207,5 +194,4 @@ const FeaturedProducts = ({ selectedCategory, setSelectedCategory, searchQuery }
     </div>
   );
 };
-
 export default FeaturedProducts;
