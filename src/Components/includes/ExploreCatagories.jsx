@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import RightBtn from "../../assets/images/explore categories/right.png";
+import LefttBtn from "../../assets/images/explore categories/Left.png";
 import categoriesData from "../ExploreCategories.json";
 // Imported all images
 const imageContext = require.context(
@@ -63,15 +64,15 @@ const CategorySlider = () => {
     return filteredCategories.slice(start, end);
   };
   return (
-    <div className="wrapper container mx-auto py-16">
-      <div className="flex flex-wrap justify-between items-center mb-4">
-        <h2 className="text-2xl font-bold">Explore Categories</h2>
+    <div className=" container mx-auto py-16">
+      <div className="wrapper flex flex-wrap justify-between items-center mb-4">
+        <h2 className="text-[32px] font-bold  mb-6 mt-3">Explore Categories</h2>
         <div className="hidden max-[540px]:hidden sm:block space-x-4">
           {uniqueTypes.map((category) => (
             <button
               key={category}
-              className={`px-3 py-1 rounded  ${
-                filter === category ? "bg-green-500 text-white" : "bg-gray-200"
+              className={`px-3 py-1 text-[16px] font-medium ${
+                filter === category ? "bg-white text-green-500" : "bg-none"
               } `}
               onClick={() => setFilter(category)}
             >
@@ -86,9 +87,9 @@ const CategorySlider = () => {
           className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10"
           disabled={centerIndex === 0}
         >
-          <ChevronLeft size={24} />
+          <img src={LefttBtn}  alt="LeftBtn" className="ml-10" />
         </button>
-        <div className="flex overflow-hidden w-full">
+        <div className="wrapper flex overflow-hidden w-full">
           {getVisibleCategories().map((category, index) => (
             <div
               key={index}
@@ -115,7 +116,7 @@ const CategorySlider = () => {
           className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10"
           disabled={centerIndex >= filteredCategories.length - visibleItems}
         >
-          <ChevronRight size={24} />
+          <img src={RightBtn} alt="RightBtn" className="mr-10"/>
         </button>
       </div>
     </div>

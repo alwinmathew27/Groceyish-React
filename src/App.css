@@ -41,8 +41,13 @@
   scrollbar-width: none;  /* Firefox */
 }
 *{
-  font-family: Quicksand;
+  font-family: "Quicksand", sans-serif;
 }
 
 
-
+.icon{
+  color: blueviolet;
+}
+.icon :hover{
+  color: greenyellow;
+}

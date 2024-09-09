@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, Star, ShoppingCart, Plus, Minus, Heart } from 'lucide-react';
+import { Star, ShoppingCart, Plus, Minus, Heart } from 'lucide-react';
 import { useCart } from './CartContext';
 import { useWishlist } from './WishlistContext';
 import { toast } from 'react-hot-toast';
@@ -10,6 +10,8 @@ import Broccoli from "../../assets/images/FeaturedProducts/braccoli.png";
 import GreenBeans from "../../assets/images/FeaturedProducts/greenBeans.png";
 import Kanandevan from "../../assets/images/FeaturedProducts/kanan.jpeg";
 import Chicken from "../../assets/images/FeaturedProducts/chicken.jpg";
+import RightArrowbtn from "../../assets/images/FeaturedProducts/right.png";
+import LeftArrowbtn from "../../assets/images/FeaturedProducts/Left.png";
 const products = [
   { id: 1, name: 'Redish 500g', category: 'Vegetables', price: 2, oldPrice: 3.99, image: Redish, rating: 4 },
   { id: 2, name: 'Potatos 1kg', category: 'Vegetables', price: 1, oldPrice: 1.99, image: Potatos, rating: 4 },
@@ -71,18 +73,18 @@ const FeaturedProducts = ({ selectedCategory, setSelectedCategory, searchQuery }
     return wishlist.some(item => item.id === productId);
   };
   return (
-    <div className="wrapper container mx-auto py-8">
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-3xl font-bold text-gray-800">Featured Products</h2>
+    <div className=" container mx-auto py-8">
+      <div className="wrapper flex justify-between items-center mb-6">
+        <h2 className="text-[32px] font-bold text-gray-800 mb-8">Featured Products</h2>
         <div className="space-x-2 hidden sm:block">
           {categories.map(category => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded transition-colors ${
+              className={`px-4 py-2 font-medium text-[16px] rounded transition-colors ${
                 selectedCategory === category
-                  ? 'bg-green-500 text-white'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  ? 'bg-white text-green-500'
+                  : 'bg-none'
               }`}
             >
               {category}
@@ -94,15 +96,15 @@ const FeaturedProducts = ({ selectedCategory, setSelectedCategory, searchQuery }
         {filteredProducts.length > 5 && (
           <button 
             onClick={() => scroll(-300)} 
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-md z-10 hover:bg-gray-100 transition-colors"
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full  shadow-md z-10 hover:bg-gray-100 transition-colors ml-10"
             aria-label="Scroll left"
           >
-            <ChevronLeft size={24} />
+            <img src={LeftArrowbtn} alt="Left_Arrow" />
           </button>
         )}
         <div 
           ref={sliderRef}
-          className="flex overflow-x-auto space-x-6 pb-6 justify-start items-stretch hide-scrollbars"
+          className="wrapper flex overflow-x-auto space-x-7  justify-start items-stretch hide-scrollbars"
           style={{
             scrollSnapType: 'x mandatory',
             scrollBehavior: 'smooth',
@@ -113,47 +115,20 @@ const FeaturedProducts = ({ selectedCategory, setSelectedCategory, searchQuery }
             filteredProducts.map(product => (
               <div 
                 key={product.id} 
-                className="flex-none w-56 items-center border rounded-lg overflow-hidden shadow-md transition-transform duration-300 ease-in-out transform"
+                className="flex-none w-[228px] items-center border rounded-lg overflow-hidden shadow-md transition-transform duration-300 ease-in-out transform"
                 style={{ scrollSnapAlign: 'start' }}
                 onMouseEnter={() => setHoveredProduct(product.id)}
                 onMouseLeave={() => setHoveredProduct(null)}
               >
-                <div className="h-48">
-                  <img src={product.image} alt={product.name} className="w-full h-full object-cover relative" />
+                <div className="h-[144px]">
+                  <img src={product.image} alt={product.name} className="w-full h-full p-4 object-cover relative" />
                   <button 
                     onClick={() => handleWishlistToggle(product)}
-                    className={`p-2 rounded-full absolute top-0 right-0 ${isInWishlist(product.id) ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-600'}`}
+                    className={`p-1 rounded-full absolute top-2 right-2 ${isInWishlist(product.id) ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-600'}`}
                   >
-                    <Heart size={20} />
+                    <Heart size={18} />
                   </button>
-                  <div className="inset-0 flex items-center justify-relative">
-                    <button 
-                      onClick={() => handleAddToCart(product)}
-                      className="px-2 py-2 rounded flex items-center bg-green-200 text-green-700 text-xs transition-colors absolute right-2 bottom-2"
-                    >
-                      <ShoppingCart size={19} className="mr-2" />
-                      {isInCart(product.id) ? 'Add More' : 'Add'}
-                    </button>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <h3 className="font-semibold text-lg mb-2">{product.name}</h3>
-                  <div className="flex items-center mb-2">
-                    {[...Array(5)].map((_, i) => (
-                      <Star 
-                        key={i} 
-                        size={16} 
-                        className={i < product.rating ? 'text-yellow-400 fill-current' : 'text-gray-300'} 
-                      />
-                    ))}
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <span className="font-bold text-lg text-green-600">${product.price.toFixed(2)}</span>
-                      <span className="text-sm text-gray-500 line-through ml-2">${product.oldPrice.toFixed(2)}</span>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center mt-4">
+                  <div className="flex justify-between items-center right-1 absolute ">
                     {isInCart(product.id) && (
                       <div className="flex items-center">
                         <button 
@@ -172,6 +147,39 @@ const FeaturedProducts = ({ selectedCategory, setSelectedCategory, searchQuery }
                       </div>
                     )}
                   </div>
+                  <div className="inset-0 flex items-center justify-relative">
+                    <button 
+                      onClick={() => handleAddToCart(product)}
+                      className="px-5 py-2 rounded flex items-center bg-green-200 text-green-700 text-xs transition-colors absolute right-2 bottom-3 "
+                    >
+                      <ShoppingCart size={19} className="mr-2" />
+                      {isInCart(product.id) ? 'Add More' : 'Add'}
+                    </button>
+                  </div>
+                </div>
+                <div className="p-3">
+                  <span className="text-[12px] text-gray-500">{product.category}</span>
+                  <h3 className="font-semibold text-[16px]  mb-2 leading-8">{product.name}</h3>
+                  <div className="flex items-center mb-2">
+                    {[...Array(5)].map((_, i) => (
+                      <Star 
+                        key={i} 
+                        size={16} 
+                        className={i < product.rating ? 'text-yellow-400 fill-current' : 'text-gray-300'} 
+                      />
+                    ))}
+                    <span className='ml-1 text-[12px] text-gray-600'>(4)</span>
+                  </div>
+                  <div>
+                    <span className='text-[12px] text-gray-500'>By </span>
+                    <span className='text-[12px] text-green-600'>Mr.Food</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <div className='mt-3'>
+                      <span className="font-bold text-lg text-green-600">${product.price.toFixed(2)}</span>
+                      <span className="text-sm text-gray-500 line-through ml-2">${product.oldPrice.toFixed(2)}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))
@@ -184,10 +192,10 @@ const FeaturedProducts = ({ selectedCategory, setSelectedCategory, searchQuery }
         {filteredProducts.length > 5 && (
           <button 
             onClick={() => scroll(300)} 
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-md z-10 hover:bg-gray-100 transition-colors"
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full shadow-md z-10 hover:bg-gray-100 transition-colors mr-10 "
             aria-label="Scroll right"
           >
-            <ChevronRight size={24} />
+            <img src={RightArrowbtn} alt="Right_Arrow_Btn" />
           </button>
         )}
       </div>

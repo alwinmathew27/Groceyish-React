@@ -14,10 +14,10 @@ import email from "../../assets/images/footer_image/middle/email.png"
 import time from "../../assets/images/footer_image/middle/time.png"
 const Footer = () => {
   return (
-    <footer className="bg-white py-8 px-4 sm:px-6 lg:px-8">
+    <footer className="bg-white py-8 px-4 sm:px-6 lg:px-8 mt-4">
       <div className="max-w-7xl mx-auto mt-8 sm:mt-16">
         {/* Top Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-11">
           {[
             {
               img: priceimage,
@@ -45,7 +45,7 @@ const Footer = () => {
               <img
                 src={item.img}
                 alt={item.alt}
-                className="w-8 h-8 mb-2 sm:mb-0 sm:mr-3"
+                className="w-[52px] h-[52px] mb-2 sm:mb-0 sm:mr-3"
               />
               <div>
                 <h3 className="font-semibold">{item.title}</h3>
@@ -56,13 +56,13 @@ const Footer = () => {
         </div>
         {/* Main Footer Content */}
         <hr className="my-8" />
-        <div className="flex  justify-between flex-wrap  ">
+        <div className="flex  justify-between flex-wrap  mt-16 ">
           {/* Company Info */}
           <div className="text-center sm:text-left">
             <img
               src={Logoimage}
               alt="logoimage"
-              className="w-48 h-14 mb-4 mx-auto sm:mx-0"
+              className="w-[197px] h-[56px] mb-4 mx-auto sm:mx-0"
             />
             <p className="flex text-sm text-gray-500 mb-2 items-center mt-6 ">
               <img src={location} alt="Location" className="h-4 w-4 mr-1" />Address: 1762 School House Road

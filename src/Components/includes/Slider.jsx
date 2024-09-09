@@ -4,6 +4,7 @@ import { RxDotFilled } from "react-icons/rx";
 import SliderImage1 from "../../assets/images/slider images/slider-1.webp";
 import SliderImage2 from "../../assets/images/slider images/slider-2.webp";
 import SliderImage3 from "../../assets/images/slider images/slider-3.webp";
+import Sent from "../../assets/images/slider images/li_send.png";
 function Modal({ show, onClose }) {
   if (!show) {
     return null;
@@ -71,36 +72,54 @@ function Slider() {
       >
         {currentIndex === 0 && (
           <>
-          <div className="wrapper">
+            <div className="wrapper">
               <div className=" absolute top-20  bg-opacity-50 text-black  rounded ">
-                <h2 style={{ lineHeight: '1.5' }} className="myheading font-bold leading-snug text-2xl sm:text-4xl md:text-5xl w-2/3  ">
+                <h2
+                  style={{ lineHeight: "1.5" }}
+                  className="myheading font-bold leading-snug text-2xl sm:text-4xl md:text-5xl w-2/3 lg:text-[55px] "
+                >
                   Don't miss our daily amazing deals.
                 </h2>
-                <p className="mt-2 sm:mt-6 ">Save up to 60% off on your first order</p>
+                <p className="mt-2 sm:mt-6 lg:text-[20px]">
+                  Save up to 60% off on your first order
+                </p>
               </div>
               {!isSubscribed && (
                 <form
                   onSubmit={handleSubscription}
-                  className="absolute bottom-24 max-[480px]:bottom-48 max-[760px]:bottom-32"
+                  className="absolute  bottom-24 max-[480px]:bottom-48 max-[760px]:bottom-32"
                 >
+                  {/* <img src={Sent} alt="" className=" w-6 h-6 mr-2 " />
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    
                     placeholder="Enter your email address"
                     required
-                    className=" py-2 px-8 border border-gray-300 max-[480px]:px-3"
-                  />
-                  <button
-                    type="submit"
-                    className=" text-white px-3 py-2 max-[480px]:px-2"
-                    style={{ backgroundColor: '#3bb77e', color: '#fff' }}
-                  >
-                    Subscribe
-                  </button>
-                </form> 
-            )}
-          </div>
+                    className="  py-2 px-8 border border-gray-300 max-[480px]:px-3"
+                  /> */}
+                  <div className="flex items-center   bg-white border border-gray-300 max-[480px]:scale-90 max-[380px]:scale-75">
+                    <img src={Sent} alt="Sent img" className="w-4 h-auto ml-2" />
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Enter email your address"
+                      required
+                      className="placeholder:text-[14px] flex-1 border-none outline-none px-8 "
+                    />
+                    <button
+                      type="submit"
+                      className=" text-white px-3 py-2 max-[480px]:"
+                      style={{ backgroundColor: "#3bb77e", color: "#fff" }}
+                    >
+                      Subscribe
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
           </>
         )}
         {currentIndex === 1 && (
@@ -115,7 +134,9 @@ function Slider() {
         {currentIndex === 2 && (
           <div className="wrapper">
             <div className="absolute top-32   bg-opacity-50 text-black rounded">
-              <h2 className=" font-bold text-2xl sm:text-4xl md:text-5xl">Bring nature into your home</h2>
+              <h2 className=" font-bold text-2xl sm:text-4xl md:text-5xl">
+                Bring nature into your home
+              </h2>
             </div>
           </div>
         )}

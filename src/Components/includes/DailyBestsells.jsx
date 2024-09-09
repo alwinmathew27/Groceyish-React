@@ -1,23 +1,32 @@
-import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Mail, Lock } from "lucide-react";
+import React, { useState, useEffect, useRef } from "react";
+import { Mail, Lock } from "lucide-react";
 import Coffee from "../../assets/images/Daily-best-deals/coffee.png";
 import Green_tea from "../../assets/images/Daily-best-deals/green-tea.png";
 import Sausage from "../../assets/images/Daily-best-deals/sausage.png";
 import Onion from "../../assets/images/Daily-best-deals/onion.png";
-import { useCart } from "./CartContext"; 
+import { useCart } from "./CartContext";
+import leftbtn from "../../assets/images/Daily-best-deals/li_arrow-right (1).png";
+import rightbtn from "../../assets/images/Daily-best-deals/li_arrow-right.png";
+import cart_icon from "../../assets/images/Daily-best-deals/li_shopping-cart.png";
+
 const ProductCard = ({ product, addToCart }) => (
-  <div className="bg-white p-4 rounded-lg shadow w-52 h-96">
+  <div className="bg-white p-2  shadow w-48 h-80 sm:w-[228px] sm:h-[387px] flex-shrink-0 border border-gray-300">
     <div className="relative">
       <img
         src={product.image}
         alt={product.name}
-        className="w-full h-40 object-cover mb-4 rounded"
+        className="w-full h-32 sm:h-40 object-cover mb-4 rounded"
       />
-      <span className="absolute top-2 left-2 bg-yellow-400 text-xs px-2 py-1 rounded">
+      {/* <span className="absolute top-2 left-2 bg-yellow-400 text-xs px-2 py-1 rounded">
         Save {product.discount}%
-      </span>
+      </span> */}
+      {product.discount > 0 && product.id !== 2 && (
+        <span className="absolute top-2 left-2 bg-yellow-400 text-xs px-2 py-1 rounded">
+          Save {product.discount}%
+        </span>
+      )}
       {product.bestDeal && (
-        <span className="absolute top-2 right-2 bg-green-400 text-xs px-2 py-1 rounded">
+        <span className="absolute top-2 left-2 bg-green-400 text-xs px-2 py-1 rounded">
           Best deal
         </span>
       )}
@@ -43,7 +52,7 @@ const ProductCard = ({ product, addToCart }) => (
         ({product.reviewCount})
       </span>
     </div>
-    <div className="flex justify-between items-center mb-2">
+    <div className="flex gap-3 items-center mb-2">
       <span className="font-bold text-green-600">${product.price}</span>
       <span className="text-sm line-through text-gray-400">
         ${product.originalPrice}
@@ -53,17 +62,21 @@ const ProductCard = ({ product, addToCart }) => (
       Sold: {product.sold}/{product.stock}
     </div>
     <button
-      className="w-full bg-[#3bb77e] text-white py-2 rounded hover:bg-green-600 transition duration-300"
-      onClick={() => addToCart(product)} // Add to Cart functionality
+      className="w-full bg-[#3bb77e] text-white py-3 rounded hover:bg-green-600 transition duration-300 flex items-center justify-center space-x-2"
+      onClick={() => addToCart(product)}
     >
-      Add to cart
+      <img src={cart_icon} alt="Cart icon" className="h-[14px] w-[14px]" />
+      <span className="text-[14px]">Add to cart</span>
     </button>
   </div>
 );
+
 const RegistrationCard = () => (
-  <div className="bg-yellow-50 p-4 pt-10 rounded-lg w-52 h-96">
+  <div className="bg-yellow-50 p-4 pt-10  w-48 h-80 sm:w-[245px] sm:h-[388px] flex-shrink-0 border border-gray-300">
     <h3 className="font-bold text-3xl text-center mb-2">10% OFF</h3>
-    <p className="text-sm mb-4 text-center">For new member sign up at the first time</p>
+    <p className="text-sm mb-4 text-center">
+      For new member sign up at the first time
+    </p>
     <div className="mt-8">
       <div className="mb-4">
         <label className="block text-sm mb-1">Email address*</label>
@@ -99,15 +112,16 @@ const RegistrationCard = () => (
     </div>
   </div>
 );
+
 const ProductSlider = () => {
   const [activeTab, setActiveTab] = useState("featured");
   const [timeLeft, setTimeLeft] = useState(39381); // 10:56:21 in seconds
-  const { addToCart } = useCart(); // Get addToCart function from useCart
+  const { addToCart } = useCart();
   const [products, setProducts] = useState([
     {
       id: 1,
-      name: "Coffe 1kg",
-      category: "Coffe & teas",
+      name: "Coffee 1kg",
+      category: "Coffee & teas",
       image: Coffee,
       rating: 4,
       reviewCount: 5,
@@ -140,7 +154,7 @@ const ProductSlider = () => {
     {
       id: 3,
       name: "Green Tea 250g",
-      category: "Coffe & teas",
+      category: "Coffee & teas",
       image: Green_tea,
       rating: 4,
       reviewCount: 4,
@@ -170,12 +184,16 @@ const ProductSlider = () => {
       isNew: true,
     },
   ]);
+
+  const sliderRef = useRef(null);
+
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft((prevTime) => (prevTime > 0 ? prevTime - 1 : 0));
     }, 1000);
     return () => clearInterval(timer);
   }, []);
+
   const formatTime = (time) => {
     const hours = Math.floor(time / 3600);
     const minutes = Math.floor((time % 3600) / 60);
@@ -184,71 +202,96 @@ const ProductSlider = () => {
       .toString()
       .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
   };
+
   const filteredProducts = products.filter((product) => {
     if (activeTab === "featured") return product.isFeatured;
     if (activeTab === "popular") return product.isPopular;
     if (activeTab === "new") return product.isNew;
     return [];
   });
+
+  const handleScroll = (direction) => {
+    if (sliderRef.current) {
+      const scrollAmount = 300; // Amount to scroll in pixels
+      if (direction === "left") {
+        sliderRef.current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      } else {
+        sliderRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    }
+  };
+
   return (
-    <div className="wrapper flex flex-col items-center px-4">
-      <div className="flex flex-col sm:flex-row items-center  gap-8 mb-4 w-full">
-        <h2 className=" text-3xl font-bold mb-4 sm:mb-0">Daily Best Sell</h2>
-        <div className="flex  items-center space-x-4">
+    <div className="wrapper items-center ">
+      <div className="flex flex-wrap items-center  justify-between">
+        <div className="flex flex-wrap items-center gap-8 mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-0">
+            Daily Best Sell
+          </h2>
+          <div className="flex items-center space-x-2 sm:space-x-4">
+            <button
+              className={`py-2 font-medium text-[16px] px-4 rounded ${
+                activeTab === "featured" ? "bg-none text-green-500" : "bg-none"
+              }`}
+              onClick={() => setActiveTab("featured")}
+            >
+              Featured
+            </button>
+            <button
+              className={`py-2 px-4 rounded font-medium text-[16px]  ${
+                activeTab === "popular" ? "bg-none text-green-500" : "bg-none"
+              }`}
+              onClick={() => setActiveTab("popular")}
+            >
+              Popular
+            </button>
+            <button
+              className={`py-2 px-4 rounded font-medium text-[16px]  ${
+                activeTab === "new" ? "bg-none text-green-500" : "bg-none"
+              }`}
+              onClick={() => setActiveTab("new")}
+            >
+              New
+            </button>
+          </div>
+          <div className="flex items-center justify-between w-full sm:w-auto mb-4 p-2 mt-3 bg-[#F35244]">
+            <span>Expires in: {formatTime(timeLeft)}</span>
+          </div>
+        </div>
+        <div className="flex justify-center items-center">
           <button
-            className={`py-2 px-4 rounded ${
-              activeTab === "featured"
-                ? "bg-green-500 text-white"
-                : "bg-gray-200"
-            }`}
-            onClick={() => setActiveTab("featured")}
+            className=" rounded-full p-3 bg-gray-200 mr-3 "
+            onClick={() => handleScroll("left")}
           >
-            Featured
+            <img src={leftbtn} className="w-6 h-6" alt="Leftbtn" />
           </button>
           <button
-            className={`py-2 px-4 rounded ${
-              activeTab === "popular"
-                ? "bg-green-500 text-white"
-                : "bg-gray-200"
-            }`}
-            onClick={() => setActiveTab("popular")}
+            className=" rounded-full  bg-gray-200 p-3"
+            onClick={() => handleScroll("right")}
           >
-            Popular
-          </button>
-          <button
-            className={`py-2 px-4 rounded ${
-              activeTab === "new" ? "bg-green-500 text-white" : "bg-gray-200"
-            }`}
-            onClick={() => setActiveTab("new")}
-          >
-            New
+            <img src={rightbtn} className="w-6 h-6" alt="Rightbtn" />
           </button>
         </div>
-        <div className="flex items-center justify-between mb-4 p-2 mt-3 bg-[#F35244]">
-            <span>Expires in: {formatTime(timeLeft)}</span>
-        </div>  
       </div>
-      <div className="flex flex-col sm:flex-row items-center sm:space-x-4 w-full">
-        <button className="bg-white rounded-full mb-4 sm:mb-0">
-          <ChevronLeft />
-        </button>
-        <div className="flex flex-wrap justify-center space-x-7 overflow-x-auto">
+      <div className="flex items-center space-x-4 w-full justify-center ">
+        <div
+          ref={sliderRef}
+          className="flex overflow-x-auto space-x-4 sm:space-x-6  scrollbar-hide"
+        >
           {filteredProducts.map((product) => (
             <ProductCard
               key={product.id}
               product={product}
-              addToCart={addToCart} // Pass addToCart function
+              addToCart={addToCart}
             />
           ))}
-          <div className="flex-shrink-0 w-56 h-96">
+          <div className="flex-shrink-0">
             <RegistrationCard />
           </div>
         </div>
-        <button className="bg-white mb-4 sm:mb-0">
-          <ChevronRight />
-        </button>
       </div>
     </div>
   );
 };
+
 export default ProductSlider;

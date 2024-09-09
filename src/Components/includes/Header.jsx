@@ -4,12 +4,14 @@ import { UserContext } from "../routing/AppRoute";
 import { useCart } from "./CartContext"; // Import the useCart hook
 import { useWishlist } from "./WishlistContext"; // Import the useWishlist hook
 import logo from "../../assets/images/header/Logo (1).png";
-import Homeicon from "../../assets/images/header/home_d.png";
-import Hoticon from "../../assets/images/header/hot deals.png";
-import percent from "../../assets/images/header/percent.png";
-import newitem from "../../assets/images/header/megaphone.png";
+import {
+  HomeIcon,
+  NewItemIcon,
+  Hotdeals,
+  Promotions,
+} from "../includes/SvgFiles";
 import menuimage from "../../assets/images/header/menu.png";
-import { Helmet } from 'react-helmet';
+import { Helmet } from "react-helmet";
 import {
   Search,
   Heart,
@@ -46,7 +48,7 @@ export default function Header({
             <div className="relative flex w-full">
               <div className="relative hidden md:block">
                 <select
-                  className="appearance-none bg-gray-100 border-r border-gray-300 text-gray-700 py-2 px-4 pr-8 focus:outline-none focus:bg-white"
+                  className="appearance-none bg-gray-100 border-r font-semibold border-gray-300 text-gray-700 py-2 px-4 pr-8 focus:outline-none focus:bg-white lg:text-[16px]"
                   value={selectedCategory}
                   onChange={(e) => {
                     setSelectedCategory(e.target.value);
@@ -66,14 +68,17 @@ export default function Header({
               <input
                 type="text"
                 placeholder="Search for items..."
-                className="w-full bg-gray-100 text-gray-700 py-2 px-4 block appearance-none leading-normal focus:outline-none"
+                className="w-full  bg-gray-100 text-gray-700 py-2 px-4 block appearance-none leading-normal focus:outline-none"
                 value={searchQuery}
                 onChange={(e) => {
                   setSearchQuery(e.target.value);
                   window.scrollTo(0, 0); // Scroll to top when a new search query is entered
                 }}
               />
-              <button style={{ backgroundColor: '#3bb77e', color: '#fff' }} className="absolute right-0 top-0 bottom-0 text-white p-3">
+              <button
+                style={{ backgroundColor: "#3bb77e", color: "#fff" }}
+                className="absolute right-0 top-0 bottom-0 text-white p-3"
+              >
                 <Search size={20} />
               </button>
             </div>
@@ -81,19 +86,21 @@ export default function Header({
           <div className="flex items-center space-x-2 md:space-x-10 order-2 md:order-3">
             <Link className="hidden lg:flex items-center text-gray-700 relative ">
               <Heart size={24} className="mr-2" />
-              <span className="text-xm">Wishlist</span>
-              <span className="absolute bottom-4 right-14 bg-green-500 text-white text-xs w-4 h-4 rounded-full flex justify-center items-center">
+              <span className="text-[15px] font-medium">Wishlist</span>
+              <span className="absolute bottom-4 right-14 bg-[#3bb77e] text-white text-xs w-4 h-4 rounded-full flex justify-center items-center">
                 {wishlist.length}
               </span>
             </Link>
-            <Link  className="flex items-center text-gray-700 relative">
+            <Link className="flex items-center text-gray-700 relative">
               <ShoppingCart size={24} className="mr-2" />
               <div className="flex flex-col items-start">
-                <span className="hidden md:inline">My cart</span>
-                <span className="text-green-500 text-sm">
+                <span className="hidden md:inline font-medium text-[15px]">
+                  My cart
+                </span>
+                <span className="text-[#3bb77e] text-sm">
                   ${cartTotal.toFixed(2)}
                 </span>
-                <span className="absolute top-0 right-14 bg-green-500 text-white text-xs w-4 h-4 rounded-full flex justify-center items-center">
+                <span className="absolute top-0 right-14 bg-[#3bb77e] text-white text-xs w-4 h-4 rounded-full flex justify-center items-center">
                   {cart.items.reduce((total, item) => total + item.quantity, 0)}
                 </span>
               </div>
@@ -101,11 +108,17 @@ export default function Header({
 
             <div>
               {userData ? (
-                <button onClick={() => handleLogout()} className="bg-[#3bb77e] hover:bg-green-400 text-white font-bold py-1 px-2 md:py-2 md:px-4  rounded focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-opacity-50 lg:px-4 lg:py-2 md:text-base">
+                <button
+                  onClick={() => handleLogout()}
+                  className="bg-[#3bb77e] hover:bg-green-400 text-white font-bold py-1 px-2 md:py-2 md:px-4  rounded focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-opacity-50 lg:px-4 lg:py-2 md:text-base"
+                >
                   Logout
                 </button>
               ) : (
-                <Link className="bg-[#3bb77e] hover:bg-green-400 text-white font-bold py-1 px-2 rounded focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-opacity-50 md:text-base md:py-1 md:px-2 lg:px-4 lg:py-2" to="/auth/login">
+                <Link
+                  className="bg-[#3bb77e] hover:bg-green-400 text-white font-bold py-1 px-2 rounded focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-opacity-50 md:text-base md:py-1 md:px-2 lg:px-4 lg:py-2"
+                  to="/auth/login"
+                >
                   Login
                 </Link>
               )}
@@ -148,7 +161,7 @@ export default function Header({
             </a>
           </div>
           <div className="py-2">
-            <div className="flex items-center justify-center text-green-500">
+            <div className="flex items-center justify-center text-[#3bb77e]">
               <Phone size={20} className="mr-2" />
               <span>1233-7777</span>
             </div>
@@ -157,49 +170,50 @@ export default function Header({
             </div>
           </div>
         </div>
-
         {/* Desktop bottom header */}
         <div className="hidden md:flex items-center justify-between py-1 pb-2">
-          <button style={{ backgroundColor: '#3bb77e', color: '#fff' }} className=" text-white px-3 py-2  flex items-center ">
+          <button
+            style={{ backgroundColor: "#3bb77e", color: "#fff" }}
+            className=" text-white px-3 py-2  flex items-center "
+          >
             {/* <Menu size={20} className="mr-2" /> */}
-            <img src={menuimage} alt="menu_png" className="mr-2"/>
-            
+            <img src={menuimage} alt="menu_png" className="mr-2" />
             Browse All Categories
           </button>
           <div className="flex space-x-6">
             <a
               href="/"
-              className="text-gray-700 flex items-center hover:text-green-500"
+              className="text-gray-700 font-semibold text-[16px] flex items-center hover:text-[#3bb77e]"
             >
-              <img src={Homeicon} alt="Home Icon" className="w-4 h-4 mr-2" />
+              <HomeIcon />
               Home
             </a>
             <a
               href="/"
-              className="text-gray-700 flex items-center hover:text-green-500"
+              className="text-gray-700 flex items-center hover:text-[#3bb77e] font-semibold text-[16px] "
             >
-              <img src={Hoticon} alt="Hot Icon" className="w-4 h-4 mr-2" />
+              <Hotdeals />
               Hot deals
             </a>
             <a
               href="/"
-              className="text-gray-700 flex items-center hover:text-green-500"
+              className="text-gray-700 flex items-center hover:text-[#3bb77e] font-semibold text-[16px] "
             >
-              <img src={percent} alt="percent" className="w-4 h-4 mr-2" />
+              <Promotions />
               Promotions
             </a>
             <a
               href="/"
-              className="text-gray-700 flex items-center hover:text-green-500"
+              className="text-gray-700 flex items-center hover:text-[#3bb77e] font-semibold text-[16px] "
             >
-              <img src={newitem} alt="New Items Icon" className="w-4 h-4 mr-2" />
+              <NewItemIcon />
               New products
             </a>
           </div>
           <div className="flex items-center text-[#3bb77e]">
             <Phone size={20} className="mr-2" />
             <span>1233-7777</span>
-            <span className="ml-2 text-gray-500 text-sm">
+            <span className="ml-2 text-gray-500 text-[14px] font-semibold">
               24/7 support center
             </span>
           </div>

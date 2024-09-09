@@ -8,8 +8,8 @@ import Potato from "../../assets/images/toprated/Potato.png";
 import Carrot from "../../assets/images/toprated/Carrot.png";
 import Appl from "../../assets/images/toprated/Appl.png";
 const ProductCard = ({ image, name, rating, price, originalPrice }) => (
-  <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-4 p-4 bg-white rounded-lg shadow">
-    <img src={image} alt={name} className="w-[100px] h-[100px] sm:w-[66px] sm:h-[66px] object-cover rounded" />
+  <div className="flex flex-col sm:flex-row items-center sm:items-start  space-y-4 sm:space-y-0 sm:space-x-4 py-4 bg-white rounded-lg ">
+      <img src={image} alt={name} className="w-[100px] h-[100px] p-2 bg-[#F4F6FA] sm:w-[90px] sm:h-[90px] object-cover " />
     <div className="text-center sm:text-left">
       <h3 className="font-semibold">{name}</h3>
       <div className="flex items-center justify-center sm:justify-start">
@@ -26,9 +26,9 @@ const ProductCard = ({ image, name, rating, price, originalPrice }) => (
   </div>
 );
 const ProductSection = ({ title, products }) => (
-  <div className="mb-8">
+  <div className="mb-8 mt-16">
     <h2 className="text-xl font-bold mb-4 pb-2 border-b-2 border-green-500 text-center sm:text-left sm:inline-block">{title}</h2>
-    <div className="grid grid-cols-1 gap-4">
+    <div className="grid grid-cols-1 gap-4  ">
       {products.map((product, index) => (
         <ProductCard key={index} {...product} />
       ))}
@@ -59,8 +59,8 @@ const ProductDisplay = () => {
     ]},
   ];
   return (
-    <div className="wrapper container mx-auto px-4 py-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 flex-wrap">
+    <div className="wrapper container mx-auto  py-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-center flex-wrap ">
         {sections.map((section, index) => (
           <ProductSection key={index} {...section} />
         ))}
