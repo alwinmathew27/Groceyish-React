@@ -9,10 +9,10 @@ const Offer = () => {
         <img src={banner1} alt="Free delivery offer" className="w-full h-64 md:h-full object-cover" />
         <div className="absolute inset-0 flex items-center p-4 md:p-8">
           <div className="text-left">
-            <span className="bg-yellow-200 text-yellow-800 text-xs sm:text-xs md:text-sm font-semibold mr-2 px-2 sm:px-2 md:px-3 py-1 rounded lg:p-[7px] lg:text-[12px]">Free delivery</span>
+            <span className="bg-[#ffd480] text-white text-xs sm:text-xs md:text-sm font-semibold mr-2 px-2 sm:px-2 md:px-3 py-1  lg:p-[7px] lg:text-[12px]">Free delivery</span>
             <h3 className="text-lg sm:text-xl lg:text-2xl md:text-xs font-bold mt-2 sm:mt-3 md:mt-1 text-black lg:mt-4">Free delivery over $50</h3>
-            <p className="text-xs sm:text-sm lg:text-lg mt-1 sm:mt-2 md:mt-2 text-black md:text-xs">Shop $50 product and get free delivery anywhere.</p>
-            <button className="mt-1 sm:mt-3 md:mt-4 bg-[#3bb77e] text-white px-3 sm:px-4 md:px-2 py-1.5 sm:py-2 md:py-2 text-xs sm:text-sm lg:text-[16px] md:text-sm rounded-lg hover:bg-green-600 transition duration-300 flex items-center lg:p-[14px]">Shop Now <img src={Arrow} className='ml-2' alt="Arrow" /></button>
+            <p className="text-xs sm:text-sm lg:text-lg mt-1 sm:mt-2 md:mt-2 text-[#838383] md:text-xs lg:w-8/12">Shop $50 product and get free delivery anywhere.</p>
+            <button className="mt-1 sm:mt-3 md:mt-8 bg-[#3bb77e] text-white px-3 sm:px-4 md:px-2 py-1.5 sm:py-2 md:py-2 text-xs sm:text-sm lg:text-[16px] md:text-sm  hover:bg-green-600 transition duration-300 flex items-center lg:p-[14px]">Shop Now <img src={Arrow} className='ml-2' alt="Arrow" /></button>
           </div>
         </div>
       </div>
@@ -20,10 +20,10 @@ const Offer = () => {
         <img src={banner2} alt="Organic food offer" className="w-full h-64 md:h-full object-cover" />
         <div className="absolute inset-0 flex items-center p-4 md:p-8">
           <div className="text-left">
-            <span className="bg-green-200 text-green-800 text-xs sm:text-xs md:text-sm font-semibold mr-2 px-2 sm:px-2 md:px-3 py-1 rounded lg:p-[7px] lg:text-[12px]">60% off</span>
+            <span className="bg-[#3bb77e] text-white text-xs sm:text-xs md:text-sm font-semibold mr-2 px-2 sm:px-2 md:px-3 py-1  lg:p-[7px] lg:text-[12px]">60% off</span>
             <h3 className=" sm:text-xl  font-bold mt-2 sm:mt-3 md:mt-1 text-black md:text-xs lg:text-2xl lg:mt-4">Organic Food</h3>
-            <p className="text-xs sm:text-sm lg:text-lg mt-1 sm:mt-2 md:mt-2 text-black md:text-xs">Save up to 60% off on your first order</p>
-            <button className="mt-1 sm:mt-3 md:mt-4 bg-[#3bb77e] text-white px-3 sm:px-4 md:px-2 py-1.5 sm:py-2 md:py-2 text-xs sm:text-sm lg:text-[16px] rounded-lg md:text-sm hover:bg-green-600 transition duration-300 flex items-center lg:p-[14px]">Order Now <img src={Arrow} className='ml-2' alt="Arrow" /></button>
+            <p className="text-xs sm:text-sm lg:text-lg mt-1 sm:mt-2 md:mt-2 text-[#838383] md:text-xs lg:w-9/12">Save up to 60% off on your first order</p>
+            <button className="mt-1 sm:mt-3 md:mt-8 bg-[#3bb77e] text-white px-3 sm:px-4 md:px-2 py-1.5 sm:py-2 md:py-2 text-xs sm:text-sm lg:text-[16px]  md:text-sm hover:bg-green-600 transition duration-300 flex items-center lg:p-[14px]">Order Now <img src={Arrow} className='ml-2' alt="Arrow" /></button>
           </div>
         </div>
       </div>

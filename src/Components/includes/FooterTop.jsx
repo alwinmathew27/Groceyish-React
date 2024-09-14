@@ -49,7 +49,7 @@ const Footer = () => {
               />
               <div>
                 <h3 className="font-semibold">{item.title}</h3>
-                <p className="text-sm text-gray-500">{item.desc}</p>
+                <p className="text-sm text-gray-500 w-9/12 mt-1">{item.desc}</p>
               </div>
             </div>
           ))}

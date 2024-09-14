@@ -80,14 +80,14 @@ function Slider() {
                 >
                   Don't miss our daily amazing deals.
                 </h2>
-                <p className="mt-2 sm:mt-6 lg:text-[20px]">
+                <p className="mt-2 sm:mt-6 lg:text-[20px] text-[#838383]">
                   Save up to 60% off on your first order
                 </p>
               </div>
               {!isSubscribed && (
                 <form
                   onSubmit={handleSubscription}
-                  className="absolute  bottom-24 max-[480px]:bottom-48 max-[760px]:bottom-32"
+                  className="absolute   bottom-20 max-[480px]:bottom-48 max-[760px]:bottom-32"
                 >
                   {/* <img src={Sent} alt="" className=" w-6 h-6 mr-2 " />
                   <input

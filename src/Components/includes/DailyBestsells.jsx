@@ -10,8 +10,8 @@ import rightbtn from "../../assets/images/Daily-best-deals/li_arrow-right.png";
 import cart_icon from "../../assets/images/Daily-best-deals/li_shopping-cart.png";
 
 const ProductCard = ({ product, addToCart }) => (
-  <div className="bg-white p-2  shadow w-48 h-80 sm:w-[228px] sm:h-[387px] flex-shrink-0 border border-gray-300">
-    <div className="relative">
+  <div className="bg-white p-2  shadow w-48 h-80 sm:w-[228px] sm:h-[387px] flex-shrink-0 border border-gray-300 relative">
+    <div>
       <img
         src={product.image}
         alt={product.name}
@@ -21,12 +21,12 @@ const ProductCard = ({ product, addToCart }) => (
         Save {product.discount}%
       </span> */}
       {product.discount > 0 && product.id !== 2 && (
-        <span className="absolute top-2 left-2 bg-yellow-400 text-xs px-2 py-1 rounded">
+        <span className="absolute top-0 left-0 bg-[#ffd480] text-white text-xs px-2 py-1 ">
           Save {product.discount}%
         </span>
       )}
       {product.bestDeal && (
-        <span className="absolute top-2 left-2 bg-green-400 text-xs px-2 py-1 rounded">
+        <span className="absolute top-0 left-0 bg-[#def9ec] text-xs font-medium px-2 py-1 text-[#3bb77e] ">
           Best deal
         </span>
       )}
@@ -124,7 +124,7 @@ const ProductSlider = () => {
       category: "Coffee & teas",
       image: Coffee,
       rating: 4,
-      reviewCount: 5,
+      reviewCount: 4,
       price: 20,
       originalPrice: 25,
       sold: 20,
@@ -140,7 +140,7 @@ const ProductSlider = () => {
       category: "Meat",
       image: Sausage,
       rating: 4,
-      reviewCount: 3,
+      reviewCount: 4,
       price: 4,
       originalPrice: 10,
       sold: 7,
@@ -173,7 +173,7 @@ const ProductSlider = () => {
       category: "Vegetables",
       image: Onion,
       rating: 4,
-      reviewCount: 1,
+      reviewCount: 4,
       price: 0.5,
       originalPrice: 2,
       sold: 2,
@@ -254,8 +254,10 @@ const ProductSlider = () => {
               New
             </button>
           </div>
-          <div className="flex items-center justify-between w-full sm:w-auto mb-4 p-2 mt-3 bg-[#F35244]">
-            <span>Expires in: {formatTime(timeLeft)}</span>
+          <div className="flex items-center justify-between w-full sm:w-auto mb-4 px-2 py-1 mt-3 bg-[#F35244]">
+            <span className="text-white">
+              Expires in: {formatTime(timeLeft)}
+            </span>
           </div>
         </div>
         <div className="flex justify-center items-center">
