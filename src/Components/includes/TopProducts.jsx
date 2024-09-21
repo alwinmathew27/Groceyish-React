@@ -28,7 +28,7 @@ const ProductCard = ({ image, name, rating, price, originalPrice }) => (
 const ProductSection = ({ title, products }) => (
   <div className="mb-8 mt-16">
     <h2 className="text-xl font-bold mb-4 pb-2 border-b-2 border-green-500 text-center sm:text-left sm:inline-block">{title}</h2>
-    <div className="grid grid-cols-1 gap-4  ">
+    <div className="grid grid-cols-1 gap-4   ">
       {products.map((product, index) => (
         <ProductCard key={index} {...product} />
       ))}
@@ -60,7 +60,7 @@ const ProductDisplay = () => {
   ];
   return (
     <div className="wrapper container mx-auto  py-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-center flex-wrap ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-center flex-wrap  ">
         {sections.map((section, index) => (
           <ProductSection key={index} {...section} />
         ))}

@@ -51,3 +51,42 @@
 .icon :hover{
   color: greenyellow;
 }
+
+@media (max-width: 1476px) {
+  .ml-custom-hide {
+    margin-left: 0 !important;
+  }
+}
+
+@media (max-width: 1476px) {
+  .mr-custom-hide {
+    margin-right: 0 !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .display-block {
+    display: none;
+  }
+}
+@media (max-width: 916px) {
+  .display-block916 {
+    display: none;
+  }
+}
+@media (max-width: 359px) {
+  .cart-hidden {
+    display: none;
+  }
+}
+
+/* Hide scrollbar on Webkit browsers (Chrome, Safari, etc.) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar on other browsers */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}

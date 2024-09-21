@@ -73,7 +73,7 @@ const FeaturedProducts = ({ selectedCategory, setSelectedCategory, searchQuery }
     return wishlist.some(item => item.id === productId);
   };
   return (
-    <div className=" container mx-auto py-8">
+    <div className=" container  w-full max-w-[1600px] mx-auto py-8">
       <div className="wrapper flex justify-between items-center mb-6">
         <h2 className="text-[32px] font-bold text-gray-800 mb-8">Featured Products</h2>
         <div className="space-x-2 hidden sm:block">
@@ -96,7 +96,7 @@ const FeaturedProducts = ({ selectedCategory, setSelectedCategory, searchQuery }
         {filteredProducts.length > 5 && (
           <button 
             onClick={() => scroll(-300)} 
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full  shadow-md z-10 hover:bg-gray-100 transition-colors ml-10"
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full  shadow-md z-10 hover:bg-gray-100 transition-colors ml-10 ml-custom-hide"
             aria-label="Scroll left"
           >
             <img src={LeftArrowbtn} alt="Left_Arrow" />
@@ -192,7 +192,7 @@ const FeaturedProducts = ({ selectedCategory, setSelectedCategory, searchQuery }
         {filteredProducts.length > 5 && (
           <button 
             onClick={() => scroll(300)} 
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full shadow-md z-10 hover:bg-gray-100 transition-colors mr-10 "
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full shadow-md z-10 hover:bg-gray-100 transition-colors mr-10 mr-custom-hide"
             aria-label="Scroll right"
           >
             <img src={RightArrowbtn} alt="Right_Arrow_Btn" />

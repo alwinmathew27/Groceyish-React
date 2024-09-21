@@ -5,12 +5,12 @@ import Green_tea from "../../assets/images/Daily-best-deals/green-tea.png";
 import Sausage from "../../assets/images/Daily-best-deals/sausage.png";
 import Onion from "../../assets/images/Daily-best-deals/onion.png";
 import { useCart } from "./CartContext";
-import leftbtn from "../../assets/images/Daily-best-deals/li_arrow-right (1).png";
+import leftbtn from "../../assets/images/Daily-best-deals/li_arrow-left.png";
 import rightbtn from "../../assets/images/Daily-best-deals/li_arrow-right.png";
 import cart_icon from "../../assets/images/Daily-best-deals/li_shopping-cart.png";
 
 const ProductCard = ({ product, addToCart }) => (
-  <div className="bg-white p-2  shadow w-48 h-80 sm:w-[228px] sm:h-[387px] flex-shrink-0 border border-gray-300 relative">
+  <div className="bg-white p-2  shadow w-48  sm:w-[228px] h-[350px] sm:h-[387px] flex-shrink-0 border border-gray-300 relative">
     <div>
       <img
         src={product.image}
@@ -70,7 +70,6 @@ const ProductCard = ({ product, addToCart }) => (
     </button>
   </div>
 );
-
 const RegistrationCard = () => (
   <div className="bg-yellow-50 p-4 pt-10  w-48 h-80 sm:w-[245px] sm:h-[388px] flex-shrink-0 border border-gray-300">
     <h3 className="font-bold text-3xl text-center mb-2">10% OFF</h3>
@@ -112,7 +111,6 @@ const RegistrationCard = () => (
     </div>
   </div>
 );
-
 const ProductSlider = () => {
   const [activeTab, setActiveTab] = useState("featured");
   const [timeLeft, setTimeLeft] = useState(39381); // 10:56:21 in seconds
@@ -223,9 +221,9 @@ const ProductSlider = () => {
 
   return (
     <div className="wrapper items-center ">
-      <div className="flex flex-wrap items-center  justify-between">
+      <div className="flex  items-center max-[445px]:flex-wrap max-[445px]:mb-4  justify-between ">
         <div className="flex flex-wrap items-center gap-8 mb-4">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-0">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-0 max-[735px]:hidden">
             Daily Best Sell
           </h2>
           <div className="flex items-center space-x-2 sm:space-x-4">
@@ -254,31 +252,31 @@ const ProductSlider = () => {
               New
             </button>
           </div>
-          <div className="flex items-center justify-between w-full sm:w-auto mb-4 px-2 py-1 mt-3 bg-[#F35244]">
+          <div className="flex items-center justify-between  sm:w-auto mb-4 px-2 py-1 mt-3 bg-[#F35244] max-[944px]:hidden">
             <span className="text-white">
               Expires in: {formatTime(timeLeft)}
             </span>
           </div>
         </div>
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center ml-4 ">
           <button
-            className=" rounded-full p-3 bg-gray-200 mr-3 "
+            className=" rounded-full p-3 bg-gray-200 mr-3 w-11 h-11"
             onClick={() => handleScroll("left")}
           >
-            <img src={leftbtn} className="w-6 h-6" alt="Leftbtn" />
+            <img src={leftbtn} className="w-full"  alt="Leftbtn" />
           </button>
           <button
-            className=" rounded-full  bg-gray-200 p-3"
+            className=" rounded-full  bg-gray-200 p-3 w-11 h-11"
             onClick={() => handleScroll("right")}
           >
-            <img src={rightbtn} className="w-6 h-6" alt="Rightbtn" />
+            <img src={rightbtn} className="w-full"  alt="Rightbtn" />
           </button>
         </div>
       </div>
-      <div className="flex items-center space-x-4 w-full justify-center ">
+      <div className="flex items-center space-x-4 w-full  justify-center ">
         <div
           ref={sliderRef}
-          className="flex overflow-x-auto space-x-4 sm:space-x-6  scrollbar-hide"
+          className="flex overflow-x-auto space-x-4 sm:space-x-6 h-[388px]  scrollbar-hide "
         >
           {filteredProducts.map((product) => (
             <ProductCard

@@ -46,7 +46,7 @@ export default function Header({
           </div>
           <div className="order-3 md:order-2 w-full md:w-auto md:flex-1 max-w-xl mx-0 md:mx-8 mt-4 md:mt-0">
             <div className="relative flex w-full">
-              <div className="relative hidden md:block">
+              <div className="relative hidden lg:block ">
                 <select
                   className="appearance-none bg-gray-100 border-r font-semibold border-gray-300 text-gray-700 py-2 px-4 pr-8 focus:outline-none focus:bg-white lg:text-[16px]"
                   value={selectedCategory}
@@ -92,20 +92,19 @@ export default function Header({
               </span>
             </Link>
             <Link className="flex items-center text-gray-700 relative">
-              <ShoppingCart size={24} className="mr-2" />
+              <ShoppingCart size={24} className="mr-2 cart-hidden" />
               <div className="flex flex-col items-start">
                 <span className="hidden md:inline font-medium text-[15px]">
                   My cart
                 </span>
-                <span className="text-[#3bb77e] text-sm">
+                <span className="text-[#3bb77e] text-sm cart-hidden">
                   ${cartTotal.toFixed(2)}
                 </span>
-                <span className="absolute top-0 right-14 bg-[#3bb77e] text-white text-xs w-4 h-4 rounded-full flex justify-center items-center">
+                <span className="absolute top-0 right-14 bg-[#3bb77e] text-white text-xs w-4 h-4 rounded-full flex justify-center items-center cart-hidden">
                   {cart.items.reduce((total, item) => total + item.quantity, 0)}
                 </span>
               </div>
             </Link>
-
             <div>
               {userData ? (
                 <button
@@ -174,37 +173,40 @@ export default function Header({
         <div className="hidden md:flex items-center justify-between py-1 pb-2">
           <button
             style={{ backgroundColor: "#3bb77e", color: "#fff" }}
-            className=" text-white px-3 py-2  flex items-center "
+            className=" text-white sm:text-[12px] md:px-1  xl:px-3 py-2  flex items-center lg:px-1 lg:text-[14px] xl:text-[16px] mr-2"
           >
-            {/* <Menu size={20} className="mr-2" /> */}
-            <img src={menuimage} alt="menu_png" className="mr-2" />
+            <img
+              src={menuimage}
+              alt="menu_png"
+              className="w-[24px] h-[24px] xl:mr-2 lg:mr-1 md:mr-0 "
+            />
             Browse All Categories
           </button>
-          <div className="flex space-x-6">
+          <div className="flex xl:space-x-6 xl:text-[16px] lg:text-[14px] md:text-[13px] md:space-x-4 ">
             <a
               href="/"
-              className="text-gray-700 font-semibold text-[16px] flex items-center hover:text-[#3bb77e]"
+              className="text-gray-700 font-semibold flex items-center hover:text-[#3bb77e]"
             >
               <HomeIcon />
               Home
             </a>
             <a
               href="/"
-              className="text-gray-700 flex items-center hover:text-[#3bb77e] font-semibold text-[16px] "
+              className="text-gray-700 flex items-center hover:text-[#3bb77e] font-semibold "
             >
               <Hotdeals />
               Hot deals
             </a>
             <a
               href="/"
-              className="text-gray-700 flex items-center hover:text-[#3bb77e] font-semibold text-[16px] "
+              className="text-gray-700 flex items-center hover:text-[#3bb77e] font-semibold "
             >
               <Promotions />
               Promotions
             </a>
             <a
               href="/"
-              className="text-gray-700 flex items-center hover:text-[#3bb77e] font-semibold text-[16px] "
+              className="text-gray-700 flex items-center hover:text-[#3bb77e] font-semibold display-block916 "
             >
               <NewItemIcon />
               New products

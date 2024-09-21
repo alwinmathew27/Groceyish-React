@@ -29,15 +29,16 @@ const CategorySlider = () => {
     // Update visible items based on screen size
     const updateVisibleItems = () => {
       const screenWidth = window.innerWidth;
-      if (screenWidth < 480) {
+      if (screenWidth < 450) {
         setVisibleItems(2);
-      } 
-        else if (screenWidth < 640) {
+      } else if (screenWidth < 640) {
         setVisibleItems(3);
       } else if (screenWidth < 768) {
         setVisibleItems(4);
       } else if (screenWidth < 1024) {
-        setVisibleItems(6);
+        setVisibleItems(5);
+      }  else if (screenWidth < 1280) {
+          setVisibleItems(6);
       } else {
         setVisibleItems(7);
       }
@@ -47,7 +48,7 @@ const CategorySlider = () => {
     return () => window.removeEventListener("resize", updateVisibleItems);
   }, []);
   useEffect(() => {
-    setCenterIndex(0); 
+    setCenterIndex(0);
   }, [filter]);
   const handlePrev = () => {
     setCenterIndex((prev) => Math.max(0, prev - 1));
@@ -64,7 +65,7 @@ const CategorySlider = () => {
     return filteredCategories.slice(start, end);
   };
   return (
-    <div className=" container mx-auto py-16">
+    <div className="container w-full max-w-[1490px] mx-auto py-16">
       <div className="wrapper flex flex-wrap justify-between items-center mb-4">
         <h2 className="text-[32px] font-bold  mb-6 mt-3">Explore Categories</h2>
         <div className="hidden max-[540px]:hidden sm:block space-x-4">
@@ -87,7 +88,7 @@ const CategorySlider = () => {
           className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10"
           disabled={centerIndex === 0}
         >
-          <img src={LefttBtn}  alt="LeftBtn" className="ml-10" />
+          <img src={LefttBtn} alt="LeftBtn" className="ml-10 ml-custom-hide" />
         </button>
         <div className="wrapper flex overflow-hidden w-full">
           {getVisibleCategories().map((category, index) => (
@@ -116,7 +117,7 @@ const CategorySlider = () => {
           className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10"
           disabled={centerIndex >= filteredCategories.length - visibleItems}
         >
-          <img src={RightBtn} alt="RightBtn" className="mr-10"/>
+          <img src={RightBtn} alt="RightBtn" className="mr-10 mr-custom-hide" />
         </button>
       </div>
     </div>

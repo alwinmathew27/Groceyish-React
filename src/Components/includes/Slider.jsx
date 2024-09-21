@@ -87,32 +87,34 @@ function Slider() {
               {!isSubscribed && (
                 <form
                   onSubmit={handleSubscription}
-                  className="absolute   bottom-20 max-[480px]:bottom-48 max-[760px]:bottom-32"
+                  className="absolute  bottom-20 max-[640px]:bottom-48 max-[760px]:bottom-32  max-[376px]:bottom-40"
                 >
-                  {/* <img src={Sent} alt="" className=" w-6 h-6 mr-2 " />
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    
-                    placeholder="Enter your email address"
-                    required
-                    className="  py-2 px-8 border border-gray-300 max-[480px]:px-3"
-                  /> */}
-                  <div className="flex items-center   bg-white border border-gray-300 max-[480px]:scale-90 max-[380px]:scale-75">
-                    <img src={Sent} alt="Sent img" className="w-4 h-auto ml-2" />
+                  <div className="flex items-center bg-white border border-gray-300  ">
+                    <div className="flex absolute inset-y-0 left-0 items-center pl-2 pointer-events-none">
+                      <img
+                        src={Sent}
+                        alt="Sent icon"
+                        className="w-4 h-auto ml-1 max-[639px]:hidden"
+                      />
+                    </div>
+                    <label htmlFor="email" className="sr-only">
+                      Email address
+                    </label>{" "}
+                    {/* Label for accessibility */}
                     <input
                       type="email"
+                      id="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Enter email your address"
+                      placeholder="Enter your email address"
                       required
-                      className="placeholder:text-[14px] flex-1 border-none outline-none px-8 "
+                      className="block w-[329px] p-3 max-[639px]:p-2 max-[639px]:w-[200px] pl-10 text-sm text-gray-900 bg-gray-50 rounded-none outline-none flex-1 placeholder:text-[14px]"
                     />
                     <button
                       type="submit"
-                      className=" text-white px-3 py-2 max-[480px]:"
-                      style={{ backgroundColor: "#3bb77e", color: "#fff" }}
+                      className="p-[14px] text-sm font-medium text-white  border-none bg-primary-700
+                       hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 max-[639px]:p-[8px]"
+                      style={{ backgroundColor: "#3bb77e" }}
                     >
                       Subscribe
                     </button>

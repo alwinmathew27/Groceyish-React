@@ -10,7 +10,7 @@
       { "name": "cabbage", "items": 17, "image": "cabbage.jpeg", "type": "Vegetables" },
       { "name": "beetroot", "items": 90, "image": "beetroot.jpg", "type": "Vegetables" }, 
       { "name": "Potato", "items": 48, "image": "potato.png", "type": "Vegetables" },
-      { "name": "Kanan Devan", "items": 65, "image": "kanan.jpeg", "type": "Coffe & teas" },
+      { "name": "Tea", "items": 65, "image": "kanan.jpeg", "type": "Coffe & teas" },
       { "name": "Tata Tea", "items": 70, "image": "Tata.png", "type": "Coffe & teas" },
       { "name": "Beef", "items": 15, "image": "beef.jpg", "type": "Meat" },
       { "name": "Chicken", "items": 50, "image": "chicken.jpg", "type": "Meat" },
