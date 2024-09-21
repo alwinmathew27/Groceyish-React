@@ -58,7 +58,7 @@ const Footer = () => {
         <hr className="my-8" />
         <div className="flex  justify-between flex-wrap  mt-16 ">
           {/* Company Info */}
-          <div className="text-center sm:text-left">
+          <div className="text-center sm:text-left flex-wrap">
             <img
               src={Logoimage}
               alt="logoimage"
@@ -79,7 +79,7 @@ const Footer = () => {
             </p>
           </div>
           {/* Account */}
-          <div className="text-center sm:text-left">
+          <div className="text-center sm:text-left max-[459px]:mt-4">
             <h3 className="font-semibold mb-4">Account</h3>
             <ul className="space-y-2 text-sm text-gray-500">
               <li><a href="/" className=" hover:text-gray-700 ">Wishlist</a></li>
@@ -89,7 +89,7 @@ const Footer = () => {
             </ul>
           </div>
           {/* Useful links */}
-          <div className="text-center sm:text-left">
+          <div className="text-center sm:text-left max-[459px]:mt-4">
             <h3 className="font-semibold mb-4">Useful links</h3>
             <ul className="space-y-2  text-gray-500">
               <li><a href="/" className=" hover:text-gray-700 ">About Us</a></li>
@@ -100,7 +100,7 @@ const Footer = () => {
             </ul>
           </div>
           {/* Help Center */}
-          <div className="text-center sm:text-left">
+          <div className="text-center sm:text-left max-[459px]:mt-4">
             <h3 className="font-semibold mb-4 ">Help Center</h3>
             <ul className="space-y-2 text-gray-500">
               <li><a href="/" className=" hover:text-gray-700 ">Payments</a></li>
