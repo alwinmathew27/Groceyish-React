@@ -59,7 +59,7 @@ const ProductDisplay = () => {
     ]},
   ];
   return (
-    <div className="wrapper container mx-auto  py-4">
+    <div className="wrapper container mt-5 mx-auto  py-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-center flex-wrap  ">
         {sections.map((section, index) => (
           <ProductSection key={index} {...section} />
