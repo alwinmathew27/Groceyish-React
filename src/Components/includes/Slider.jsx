@@ -76,11 +76,11 @@ function Slider() {
               <div className=" absolute top-20  bg-opacity-50 text-black  rounded ">
                 <h2
                   style={{ lineHeight: "1.5" }}
-                  className="myheading font-bold leading-snug text-2xl sm:text-4xl md:text-5xl w-2/3 lg:text-[55px] "
+                  className="myheading font-bold leading-snug text-2xl sm:text-4xl md:text-5xl w-2/3 max-[376px]:w-fit lg:text-[55px] "
                 >
                   Don't miss our daily amazing deals.
                 </h2>
-                <p className="mt-2 sm:mt-6 lg:text-[20px] text-[#838383]">
+                <p className="mt-2 sm:mt-6 lg:text-[20px] text-[#838383] max-[639px]:text-[12px]">
                   Save up to 60% off on your first order
                 </p>
               </div>
@@ -94,13 +94,12 @@ function Slider() {
                       <img
                         src={Sent}
                         alt="Sent icon"
-                        className="w-4 h-auto ml-1 max-[639px]:hidden"
+                        className="w-4 h-auto ml-1"
                       />
                     </div>
                     <label htmlFor="email" className="sr-only">
                       Email address
                     </label>{" "}
-                    {/* Label for accessibility */}
                     <input
                       type="email"
                       id="email"
@@ -108,7 +107,8 @@ function Slider() {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter your email address"
                       required
-                      className="block w-[329px] p-3 max-[639px]:p-2 max-[639px]:w-[200px] pl-10 text-sm text-gray-900 bg-gray-50 rounded-none outline-none flex-1 placeholder:text-[14px]"
+                      className="block w-[329px] p-3 max-[639px]:py-2 max-[639px]:w-[200px] pl-10 text-sm text-gray-900
+                       bg-gray-50 rounded-none outline-none flex-1 placeholder:text-[14px] max-[639px]:placeholder:text-[12px]"
                     />
                     <button
                       type="submit"
