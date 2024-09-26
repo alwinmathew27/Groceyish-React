@@ -87,7 +87,7 @@ function Slider() {
               {!isSubscribed && (
                 <form
                   onSubmit={handleSubscription}
-                  className="absolute  bottom-20 max-[640px]:bottom-48 max-[760px]:bottom-32  max-[376px]:bottom-40"
+                  className="absolute  bottom-20 max-[640px]:bottom-48 max-[760px]:bottom-32  max-[376px]:bottom-48"
                 >
                   <div className="flex items-center bg-white border border-gray-300  ">
                     <div className="flex absolute inset-y-0 left-0 items-center pl-2 pointer-events-none">

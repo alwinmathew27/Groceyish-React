@@ -13,7 +13,7 @@ const Offer = () => {
         />
         <div className="absolute inset-0 flex items-center p-4 md:p-8">
           <div className="text-left">
-            <span className="bg-[#ffd480] text-white text-xs sm:text-xs md:text-sm font-semibold mr-2 px-2 sm:px-2 md:px-3 py-1  lg:p-[7px] lg:text-[12px]">
+            <span className="bg-[#ffd480] text-white text-xs sm:text-xs md:text-sm font-medium mr-2 px-2 sm:px-2 md:px-3 py-1  lg:p-[7px] lg:text-[12px] rounded-[3px]">
               Free delivery
             </span>
             <h3 className="text-lg sm:text-xl lg:text-2xl md:text-xs font-bold mt-2 sm:mt-3 md:mt-3 text-black lg:mt-4 ">
@@ -36,7 +36,7 @@ const Offer = () => {
         />
         <div className="absolute inset-0 flex items-center p-4 md:p-8">
           <div className="text-left">
-            <span className="bg-[#3bb77e] text-white text-xs sm:text-xs md:text-sm font-semibold mr-2 px-2 sm:px-2 md:px-3 py-1  lg:p-[7px] lg:text-[12px] ">
+            <span className="bg-[#3bb77e] text-white text-xs sm:text-xs md:text-sm font-medium mr-2 px-3 sm:px-3 md:px-3 py-1  lg:px-6 lg:py-2 lg:text-[12px] rounded-[3px]">
               60% off
             </span>
             <h3 className=" sm:text-xl  font-bold mt-2 sm:mt-3 md:mt-3 text-black md:text-xs lg:text-2xl lg:mt-4">
